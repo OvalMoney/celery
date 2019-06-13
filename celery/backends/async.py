@@ -94,11 +94,6 @@ class greenletDrainer(Drainer):
         self._stopped.set()
         self._shutdown.wait(THREAD_TIMEOUT_MAX)
 
-    def wait_for(self, p, wait, timeout=None):
-        self.start()
-        if not p.ready:
-            sleep(0)
-
 
 @register_drainer('eventlet')
 class eventletDrainer(greenletDrainer):
